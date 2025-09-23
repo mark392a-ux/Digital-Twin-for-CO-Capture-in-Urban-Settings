@@ -1,0 +1,6 @@
+Grid Setup: 50x50x20 grid, CO2 in kg/m3, buildings as -1. 
+Emission Modeling: Add sources (traffic, industry, household) from sources table, scaled by intensity, limited by active_hours. 
+Dispersion: 3D Gaussian filter, adjusted by wind (OpenWeatherMap API), blocked by buildings. 
+Interventions: Reduce CO2 in spherical radius per intervention, respect capacity, optimize placement with SciPy minimize. 
+Sensor Integration: Calibrate grid with sensor CO2 ppm, use wind data from API. 
+Workflow: Initialize grid, add emissions, disperse, apply interventions, optimize, predict, calibrate, store in simulations table. 
