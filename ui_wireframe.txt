@@ -36,8 +36,9 @@
 [Simulation Tab]
 - 3D CO2 Volume Plot (Plotly)
 - 2D Slice at Z: [Slider: 0-20]
-- Time-Series Plot: Multi-line plot of avg CO2 (ppm), CO2 reduction (%), total cost ($) over time steps (Plotly)
+- Time-Series Plot: Multi-line plot of avg CO2 (ppm), CO2 reduction (%), total cost ($), AQI (Good=1, Moderate=2, Poor=3) over time steps (Plotly)
 - Map View: Folium map with CO2 heatmap, source/intervention markers, buildings
+- Map Style: [Dropdown: OpenStreetMap, Stamen Terrain, CartoDB Positron]
 - Map Layer Toggle: [Checkboxes: CO2 heatmap, Sources, Interventions, Buildings]
 - Suggested Location: (x, y, z)
 - [Reset Simulation Button]
