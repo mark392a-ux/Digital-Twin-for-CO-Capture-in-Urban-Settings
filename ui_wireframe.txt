@@ -1,29 +1,37 @@
 [Sidebar]
 - Add Source
   - Type: [Dropdown: traffic, industry, household]
-  - X, Y, Z: [Sliders: 0-50, 0-50, 0-20]
+  - X, Y, Z: [Sliders: 0-50, 0-50, 0-20, touch-friendly]
   - Emission Rate: [Input: 0-100]
   - Intensity: [Input: 0.5-2.0]
   - Active Hours: [Input: e.g., 08:00-18:00]
-  - [Add Source Button]
+  - [Add Source Button, touch-friendly]
+  - Validation Feedback: [Warnings, e.g., Emission rate exceeds 100 kg/hour]
 - Add Intervention
   - Type: [Dropdown: vertical_garden, roadside_unit, biofilter]
-  - X, Y, Z: [Sliders]
+  - X, Y, Z: [Sliders, touch-friendly]
   - Efficiency: [Input: 0.0-1.0]
   - Radius: [Input: 1-20]
   - Cost: [Input: 1000-100000]
   - Capacity: [Input: 10-100]
   - [Add Intervention Button]
+  - Validation Feedback: [Warnings, e.g., Radius overlaps building at x, y]
 - Add Building
   - X_min/max, Y_min/max, Z_min/max: [Inputs]
   - Material: [Dropdown: concrete, glass]
   - [Add Building Button]
+  - Validation Feedback: [Warnings, e.g., Invalid coordinates]
+- Scenario Save/Load
+  - Scenario Name: [Text Input]
+  - [Save Scenario Button]
+  - Load Scenario: [Dropdown]
 - Simulation Settings
   - [Checkbox: Use OpenWeatherAPI for wind]
   - Wind Speed: [Input: m/s]
   - Wind Direction: [Input: degrees]
   - Time Steps: [Input: 1-24]
   - [Run Simulation Button]
+  - Validation Feedback: [Warnings, e.g., Invalid wind speed]
 - Simulation Results
   - CO2 Reduction: X%
   - Avg CO2: X ppm
@@ -32,17 +40,18 @@
 - Export
   - [Download Report Button]
 [Main Area]
-[Tabs: Simulation | Data]
+[Tabs: Simulation | Data, responsive for tablets]
 [Simulation Tab]
-- Time Step Selector: [Slider or dropdown: 1-24 hours]
+- Time Step Selector: [Slider or dropdown: 1-24 hours, touch-friendly]
 - Play Button: [Button to animate plots and map across time steps]
-- 3D CO2 Volume Plot (Plotly) at selected time step or animated
-- 2D Slice at Z: [Slider: 0-20] at selected time step or animated
+- Simulation Comparison Mode: [Dropdown to select two runs; side-by-side metrics, plots, maps]
+- 3D CO2 Volume Plot (Plotly) at selected time step or animated, responsive
+- 2D Slice at Z: [Slider: 0-20, touch-friendly] at selected time step or animated
 - Time-Series Plot: Multi-line plot of avg CO2 (ppm), CO2 reduction (%), total cost ($); AQI as color-coded markers (green=Good, yellow=Moderate, red=Poor) (Plotly)
 - Map View: Folium map with CO2 heatmap, source/intervention markers, building outlines, sensor data markers (with tooltips) at selected time step or animated
 - Map Style: [Dropdown: OpenStreetMap, Stamen Terrain, CartoDB Positron]
 - Map Layer Toggle: [Checkboxes: CO2 heatmap, Sources, Interventions, Buildings, Sensors]
-- Map Zoom: [Zoom control: Folium buttons or slider]
+- Map Zoom: [Zoom control: Folium buttons or slider, touch-friendly]
 - Wind Direction: [Arrow or vector overlay on map]
 - Suggested Location: (x, y, z)
 - [Reset Simulation Button]
