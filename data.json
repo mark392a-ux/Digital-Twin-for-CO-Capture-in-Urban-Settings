@@ -1,0 +1,48 @@
+{
+    "scenarios": {
+        "W1": {
+            "sources": [
+                {
+                    "type": "traffic",
+                    "x": 25,
+                    "y": 25,
+                    "z": 0,
+                    "emission_rate": 10.0,
+                    "intensity": 1.0,
+                    "active_hours": "08:00-18:00"
+                }
+            ],
+            "interventions": [
+                {
+                    "type": "vertical_garden",
+                    "x": 25,
+                    "y": 25,
+                    "z": 0,
+                    "efficiency": 0.5,
+                    "radius": 5,
+                    "cost": 5000,
+                    "capacity": 50
+                }
+            ],
+            "buildings": [
+                {
+                    "x_min": 10,
+                    "x_max": 20,
+                    "y_min": 10,
+                    "y_max": 20,
+                    "z_min": 0,
+                    "z_max": 10,
+                    "material": "concrete"
+                }
+            ],
+            "sensors": [
+                {
+                    "x": 10,
+                    "y": 10,
+                    "z": 0,
+                    "co2_reading": 400.0
+                }
+            ]
+        }
+    }
+}
