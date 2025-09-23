@@ -19,7 +19,7 @@
   - Material: [Dropdown: concrete, glass]
   - [Add Building Button]
 - Simulation Settings
-  - [Checkbox: Use API for wind]
+  - [Checkbox: Use OpenWeatherAPI for wind]
   - Wind Speed: [Input: m/s]
   - Wind Direction: [Input: degrees]
   - Time Steps: [Input: 1-24]
@@ -36,8 +36,9 @@
 [Simulation Tab]
 - 3D CO2 Volume Plot (Plotly)
 - 2D Slice at Z: [Slider: 0-20]
-- Time-Series Plot: Avg CO2 (ppm) over time steps (Plotly)
+- Time-Series Plot: Multi-line plot of avg CO2 (ppm), CO2 reduction (%), total cost ($) over time steps (Plotly)
 - Map View: Folium map with CO2 heatmap, source/intervention markers, buildings
+- Map Layer Toggle: [Checkboxes: CO2 heatmap, Sources, Interventions, Buildings]
 - Suggested Location: (x, y, z)
 - [Reset Simulation Button]
 [Data Tab]
