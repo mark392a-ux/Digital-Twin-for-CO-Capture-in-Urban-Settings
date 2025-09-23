@@ -34,13 +34,15 @@
 [Main Area]
 [Tabs: Simulation | Data]
 [Simulation Tab]
-- 3D CO2 Volume Plot (Plotly)
-- 2D Slice at Z: [Slider: 0-20]
+- Time Step Selector: [Slider or dropdown: 1-24 hours]
+- 3D CO2 Volume Plot (Plotly) at selected time step
+- 2D Slice at Z: [Slider: 0-20] at selected time step
 - Time-Series Plot: Multi-line plot of avg CO2 (ppm), CO2 reduction (%), total cost ($); AQI as color-coded markers (green=Good, yellow=Moderate, red=Poor) (Plotly)
-- Map View: Folium map with CO2 heatmap, source/intervention markers, buildings
+- Map View: Folium map with CO2 heatmap, source/intervention markers, buildings at selected time step
 - Map Style: [Dropdown: OpenStreetMap, Stamen Terrain, CartoDB Positron]
 - Map Layer Toggle: [Checkboxes: CO2 heatmap, Sources, Interventions, Buildings]
 - Map Zoom: [Zoom control: Folium buttons or slider]
+- Wind Direction: [Arrow or vector overlay on map]
 - Suggested Location: (x, y, z)
 - [Reset Simulation Button]
 [Data Tab]
