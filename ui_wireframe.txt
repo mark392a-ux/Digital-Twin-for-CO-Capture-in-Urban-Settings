@@ -1,47 +1,49 @@
-[Sidebar] 
-- Add Source 
-  - Type: [Dropdown: traffic, industry, household] 
-  - X, Y, Z: [Sliders: 0-50, 0-50, 0-20] 
-  - Emission Rate: [Input: 0-100] 
-  - Intensity: [Input: 0.5-2.0] 
-  - Active Hours: [Input: e.g., 08:00-18:00] 
-  - [Add Source Button] 
-- Add Intervention 
-  - Type: [Dropdown: vertical_garden, roadside_unit, biofilter] 
-  - X, Y, Z: [Sliders] 
-  - Efficiency: [Input: 0.0-1.0] 
-  - Radius: [Input: 1-20] 
-  - Cost: [Input: 1000-100000] 
-  - Capacity: [Input: 10-100] 
-  - [Add Intervention Button] 
-- Add Building 
-  - X_min/max, Y_min/max, Z_min/max: [Inputs] 
-  - Material: [Dropdown: concrete, glass] 
-  - [Add Building Button] 
-- Simulation Settings 
-  - [Checkbox: Use API for wind] 
-  - Wind Speed: [Input: m/s] 
-  - Wind Direction: [Input: degrees] 
-  - Time Steps: [Input: 1-24] 
-  - [Run Simulation Button] 
-- Export 
-  - [Download Report Button] 
-[Main Area] 
-[Tabs: Simulation | Data View | History] 
-[Simulation Tab] 
-- 3D CO2 Volume Plot (Plotly) 
-- 2D Slice at Z: [Slider: 0-20] 
-- Metrics: 
-  - CO2 Reduction: X%% 
-  - Avg CO2: X ppm 
-  - AQI: [Good/Moderate/Poor] 
-  - Total Cost: $X 
-  - Suggested Location: (x, y, z) 
-  - [Reset Simulation Button] 
-[Data View Tab] 
-- Table: Sources 
-- Table: Interventions 
-- Table: Buildings 
-[History Tab] 
-- Table: Past simulations (ID, timestamp, metrics) 
-- [View Details Button] 
+[Sidebar]
+- Add Source
+  - Type: [Dropdown: traffic, industry, household]
+  - X, Y, Z: [Sliders: 0-50, 0-50, 0-20]
+  - Emission Rate: [Input: 0-100]
+  - Intensity: [Input: 0.5-2.0]
+  - Active Hours: [Input: e.g., 08:00-18:00]
+  - [Add Source Button]
+- Add Intervention
+  - Type: [Dropdown: vertical_garden, roadside_unit, biofilter]
+  - X, Y, Z: [Sliders]
+  - Efficiency: [Input: 0.0-1.0]
+  - Radius: [Input: 1-20]
+  - Cost: [Input: 1000-100000]
+  - Capacity: [Input: 10-100]
+  - [Add Intervention Button]
+- Add Building
+  - X_min/max, Y_min/max, Z_min/max: [Inputs]
+  - Material: [Dropdown: concrete, glass]
+  - [Add Building Button]
+- Simulation Settings
+  - [Checkbox: Use API for wind]
+  - Wind Speed: [Input: m/s]
+  - Wind Direction: [Input: degrees]
+  - Time Steps: [Input: 1-24]
+  - [Run Simulation Button]
+- Simulation Results
+  - CO2 Reduction: X%
+  - Avg CO2: X ppm
+  - AQI: [Good/Moderate/Poor]
+  - Total Cost: $X
+- Export
+  - [Download Report Button]
+[Main Area]
+[Tabs: Simulation | Data]
+[Simulation Tab]
+- 3D CO2 Volume Plot (Plotly)
+- 2D Slice at Z: [Slider: 0-20]
+- Time-Series Plot: Avg CO2 (ppm) over time steps (Plotly)
+- Map View: Folium map with CO2 heatmap, source/intervention markers, buildings
+- Suggested Location: (x, y, z)
+- [Reset Simulation Button]
+[Data Tab]
+- Table: Sources
+- Table: Interventions
+- Table: Buildings
+- History Section:
+  - Table: Past simulations (ID, timestamp, metrics)
+  - [View Details Button]
