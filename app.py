@@ -1,4 +1,5 @@
 # app.py
+import os
 import streamlit as st
 from streamlit_folium import st_folium
 from visualizations import plot_3d_co2, plot_2d_slice, plot_time_series, create_folium_map
@@ -8,11 +9,14 @@ from utils import validate_inputs
 import time
 import numpy as np
 import requests
+from dotenv import load_dotenv
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table
 from reportlab.lib.styles import getSampleStyleSheet
 from io import BytesIO
+
+load_dotenv()
 
 def generate_report():
     buffer = BytesIO()
@@ -313,18 +317,24 @@ def main():
             if use_api:
                 lat = st.number_input("Latitude", -90.0, 90.0, 51.5074, key="lat")  # Default to London
                 lon = st.number_input("Longitude", -180.0, 180.0, -0.1278, key="lon")  # Default to London
-                API_KEY = "ec52b92664ef5988db67e0d82924a12a"  # Replace with your API key
-                url = f"http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_KEY}"
-                response = requests.get(url)
-                if response.status_code == 200:
-                    data = response.json()
-                    wind_speed = data["wind"]["speed"]  # m/s
-                    wind_direction = data["wind"]["deg"]  # degrees
-                    st.write(f"Live Weather: Wind Speed = {wind_speed} m/s, Wind Direction = {wind_direction}°")
-                else:
-                    st.error("Failed to fetch weather data. Using defaults.")
+                api_key = os.getenv("OPENWEATHER_API_KEY")
+                if not api_key:
+                    st.warning("OPENWEATHER_API_KEY is not set. Using default wind values.")
                     wind_speed = 5.0
                     wind_direction = 0
+                else:
+                    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}"
+                    try:
+                        response = requests.get(url, timeout=10)
+                        response.raise_for_status()
+                        data = response.json()
+                        wind_speed = data.get("wind", {}).get("speed", 5.0)  # m/s
+                        wind_direction = data.get("wind", {}).get("deg", 0)  # degrees
+                        st.write(f"Live Weather: Wind Speed = {wind_speed} m/s, Wind Direction = {wind_direction} degrees")
+                    except requests.RequestException:
+                        st.error("Failed to fetch weather data. Using defaults.")
+                        wind_speed = 5.0
+                        wind_direction = 0
             else:
                 wind_speed = st.number_input("Wind Speed (m/s)", 0.0, 50.0, 5.0, key="wind_speed")
                 wind_direction = st.number_input("Wind Direction (degrees)", 0, 360, 0, key="wind_direction")
@@ -450,3 +460,4 @@ if __name__ == "__main__":
         st.session_state.simulations = {}
         st.session_state.simulation_results = {}
     main()
+
