@@ -2,7 +2,6 @@
 
 > An interactive simulation platform for modeling, visualizing, and optimizing CO₂ dispersion in urban environments — built with Python and Streamlit.
 
-[![Live Demo](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://digitaltwinco.streamlit.app/)
 
 This project implements a digital twin of a CO₂ capture system in a smart city context. It models a `50 × 50 × 20` 3D grid over time, simulates wind-influenced dispersion, evaluates intervention strategies (vertical gardens, roadside units, biofilters), and presents results through interactive charts, maps, and exportable reports.
 
